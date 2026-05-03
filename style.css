@@ -1,0 +1,168 @@
+:root {
+    --pink: #ff9ecf;
+    --purple: #a084ff;
+    --dark: #121212;
+    --white: #ffffff;
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--white);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- Miru Character --- */
+.miru-head {
+    width: 180px;
+    height: 180px;
+    background: var(--pink);
+    border-radius: 50% 50% 45% 45%;
+    position: relative;
+    border: 4px solid #333;
+    box-shadow: 0 0 20px var(--pink);
+    transition: all 0.3s ease;
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.face { position: relative; width: 100%; height: 100%; }
+
+.eyes {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 60px;
+}
+
+.eye {
+    width: 30px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+}
+
+.pupil {
+    width: 15px;
+    height: 15px;
+    background: #333;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 7px;
+}
+
+.mouth {
+    width: 40px;
+    height: 10px;
+    background: #333;
+    border-radius: 0 0 20px 20px;
+    margin: 20px auto;
+    transition: 0.2s;
+}
+
+.blush {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 90px;
+    padding: 0 20px;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.blush::before, .blush::after {
+    content: '';
+    width: 30px;
+    height: 10px;
+    background: rgba(255, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+/* --- States --- */
+.miru-head.angry { background: #ff4d4d; transform: scale(1.1); }
+.miru-head.shy .blush { opacity: 1; }
+.miru-head.talking .mouth { animation: speak 0.2s infinite; }
+
+@keyframes speak {
+    0%, 100% { height: 5px; }
+    50% { height: 20px; }
+}
+
+/* --- Chat System --- */
+.chat-container {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 30px;
+}
+
+.chat-display {
+    height: 250px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 15px;
+    overflow-y: auto;
+    border: 1px solid var(--purple);
+}
+
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+.miru-msg { background: var(--purple); align-self: flex-start; }
+.user-msg { background: #444; margin-left: auto; text-align: right; }
+
+.input-area {
+    display: flex;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+}
+
+button {
+    background: var(--pink);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* --- Camera --- */
+.camera-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#webcam {
+    width: 120px;
+    height: 90px;
+    background: #000;
+    border-radius: 10px;
+    display: none;
+    border: 2px solid var(--pink);
+}
