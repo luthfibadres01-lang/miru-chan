@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask Miru-chan | Interactive AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header>
+            <h1 class="logo">Ask <span>Miru-chan</span></h1>
+        </header>
+
+        <!-- Main Character Area -->
+        <main class="character-section">
+            <div id="miru-character" class="miru-head normal">
+                <div class="face">
+                    <div class="eyes">
+                        <div class="eye left"><div class="pupil"></div></div>
+                        <div class="eye right"><div class="pupil"></div></div>
+                    </div>
+                    <div class="blush" id="blush"></div>
+                    <div class="mouth" id="mouth"></div>
+                </div>
+            </div>
+            
+            <!-- Camera Overlay -->
+            <div class="camera-container">
+                <video id="webcam" autoplay playsinline></video>
+                <button id="btn-camera">📸 Aktifkan Kamera</button>
+            </div>
+        </main>
+
+        <!-- Chat Box -->
+        <section class="chat-container">
+            <div id="chat-display" class="chat-display">
+                <div class="message miru-msg">Hmph! Apa yang kamu lihat? Kalau mau tanya sesuatu, cepat katakan!</div>
+            </div>
+            
+            <div class="input-area">
+                <input type="text" id="user-input" placeholder="Tanya sesuatu pada Miru-chan...">
+                <button id="send-btn">Tanya Miru-chan</button>
+            </div>
+        </section>
+
+        <footer>Powered by AI | © 2026 Miru-dev</footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
